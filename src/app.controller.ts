@@ -1,17 +1,23 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
+import { ProductDto } from './product.dto';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Get('/health')
+  getHealth(): any {
+    return this.appService.getHealth();
   }
 
-  @Get('health')
-  getHealth(): object {
-    return { status: 'ok', message: 'Server is running' };
+  @Post('/products')
+  createProduct(@Body() product: ProductDto): ProductDto {
+    return this.appService.createProduct(product);
+  }
+
+  @Get('/products')
+  findAll(): ProductDto[] {
+    return this.appService.findAll();
   }
 }

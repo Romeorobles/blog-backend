@@ -9,8 +9,30 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppService = void 0;
 const common_1 = require("@nestjs/common");
 let AppService = class AppService {
-    getHello() {
-        return 'Hello World!';
+    products = [];
+    getHealth() {
+        return {
+            "status": "online",
+            "service": "blog service api",
+            "version": "0.0.1",
+            "date": new Date()
+        };
+    }
+    createProduct(product) {
+        const newProduct = {
+            ...product,
+            id: Math.floor(Math.random() * 1000) + 1
+        };
+        this.products.push(newProduct);
+        return {
+            "id": newProduct.id,
+            "name": newProduct.name,
+            "price": newProduct.price,
+            "stock": newProduct.stock
+        };
+    }
+    findAll() {
+        return this.products;
     }
 };
 exports.AppService = AppService;
