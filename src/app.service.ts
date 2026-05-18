@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { ProductDto } from './product.dto';
+import { TrianguloDto } from './triangulo.dto';
 
 @Injectable()
 export class AppService {
@@ -32,5 +33,30 @@ export class AppService {
 
   findAll(): ProductDto[] {
     return this.products;
+  }
+
+  findById(id: string): ProductDto | undefined {
+    return this.products.find(p => p.id === parseInt(id));
+  }
+
+  update(id: string, updatedProduct: ProductDto): any {
+    const index = this.products.findIndex(p => p.id === parseInt(id));
+    this.products[index] = { ...this.products[index], ...updatedProduct, id: parseInt(id) };
+    return this.products[index];
+  }
+
+  delete(id: string): any {
+    const index = this.products.findIndex(p => p.id === parseInt(id));
+    this.products.splice(index, 1);
+    return { message: `Producto ${id} eliminado correctamente` };
+  }
+
+  calcularAreaTriangulo(triangulo: TrianguloDto): any {
+    const area = (triangulo.base * triangulo.altura) / 2;
+    return {
+      base: triangulo.base,
+      altura: triangulo.altura,
+      area: area
+    };
   }
 }
