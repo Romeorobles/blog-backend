@@ -1,34 +1,41 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query, NotFoundException } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './create-user.dto';
 import { UpdateUserDto } from './update-user.dto';
+import { QueryDto } from '../common/dto/dto/QueryDto.dto';
+import { SuccessResponseDto } from '../common/dto/response.dto';
 
 @Controller('users')
 export class UsersController {
     constructor(private readonly usersService: UsersService) {}
 
     @Post()
-    create(@Body() createUserDto: CreateUserDto) {
-        return this.usersService.create(createUserDto);
+    async create(@Body() dto: CreateUserDto) {
+    const user = await this.usersService.create(dto);
+    return new SuccessResponseDto('User created successfully', user);
     }
 
     @Get()
-    findAll() {
-        return this.usersService.findAll();
+    async findAll(@Query() query: QueryDto) {
+    const result = await this.usersService.findAll(query);
+    return new SuccessResponseDto('Users retrieved successfully', result);
     }
-
     @Get(':id')
     findOne(@Param('id') id: string) {
         return this.usersService.findOne(id);
     }
 
     @Put(':id')
-    update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-        return this.usersService.update(id, updateUserDto);
+    async update(@Param('id') id: string, @Body() dto: UpdateUserDto) {
+    const user = await this.usersService.update(id, dto);
+    if (!user) throw new NotFoundException('User not found');
+    return new SuccessResponseDto('User updated successfully', user);
     }
 
     @Delete(':id')
-    remove(@Param('id') id: string) {
-        return this.usersService.findOne(id);
+    async remove(@Param('id') id: string) {
+    const user = await this.usersService.remove(id);
+    if (!user) throw new NotFoundException('User not found');
+    return new SuccessResponseDto('User deleted successfully', user);
     }
 }

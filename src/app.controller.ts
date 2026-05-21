@@ -1,7 +1,8 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, UseGuards } from '@nestjs/common';
 import { AppService } from './app.service';
 import { ProductDto } from './product.dto';
 import { TrianguloDto } from './triangulo.dto';
+import { JwtAuthGuard } from './auth/jwt-auth.guard';
 
 @Controller()
 export class AppController {
@@ -13,6 +14,7 @@ export class AppController {
   }
 
   @Post('/products')
+  @UseGuards(JwtAuthGuard)
   createProduct(@Body() product: ProductDto): ProductDto {
     return this.appService.createProduct(product);
   }
@@ -28,6 +30,7 @@ export class AppController {
   }
 
   @Put('/products/:id')
+  @UseGuards(JwtAuthGuard)
   update(
     @Param('id') id: string,
     @Body() updatedProduct: ProductDto
@@ -36,12 +39,9 @@ export class AppController {
   }
 
   @Delete('/products/:id')
+  @UseGuards(JwtAuthGuard)
   delete(@Param('id') id: string): any {
     return this.appService.delete(id);
   }
 
-  @Post('/triangulo/area')
-  calcularAreaTriangulo(@Body() triangulo: TrianguloDto): any {
-    return this.appService.calcularAreaTriangulo(triangulo);
-  }
 }
