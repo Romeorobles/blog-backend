@@ -1,0 +1,41 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.precio-producto {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Fuente de display para títulos */
+.titulos {
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Fuente de cuerpo */
+.internacional {
+    font-family: 'Inter', sans-serif;
+    color: cadetblue;
+}
+
+.titulo-seccion {
+    font-weight: 700;
+}
+
+.precio-producto {
+    font-weight: 600;
+}
+
+.descripcion {
+    font-weight: 400;
+}
+
+.nota-legal {
+    font-weight: 300;
+}
+
+/* Precio original tachado */
+.precio-original {
+    font-style: italic;
+    text-decoration: line-through;
+    color: #999;
+}

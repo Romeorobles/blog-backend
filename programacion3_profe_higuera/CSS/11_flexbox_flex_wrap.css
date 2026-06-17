@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    margin: 20px;
+}
+
+h2 {
+    margin-top: 30px;
+}
+
+/* NAVBAR */
+.navbar-links {
+    display: flex;
+    gap: 2rem;
+    background: #1a1a2e;
+    padding: 10px;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+}
+
+/* FILTROS */
+.filtros {
+    display: flex;
+    gap: 0.5rem 1rem;
+    margin: 20px 0;
+}
+
+.filtros button {
+    padding: 5px 10px;
+    border: none;
+    background: #457b9d;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* GRID DE PRODUCTOS */
+.productos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-content: flex-start;
+    height: 400px;
+    background: #ddd;
+    padding: 10px;
+    border: 2px solid #999;
+}
+
+.producto {
+    background: #457b9d;
+    color: white;
+    padding: 20px;
+    width: 120px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+/* Variaciones de align-content */
+.start {
+    align-content: flex-start;
+}
+
+.center {
+    align-content: center;
+}
+
+.between {
+    align-content: space-between;
+}
+
+.stretch {
+    align-content: stretch;
+}

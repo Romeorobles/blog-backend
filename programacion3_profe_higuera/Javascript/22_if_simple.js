@@ -1,0 +1,31 @@
+    const totalCompra = 150;
+    const MINIMO_DESCUENTO = 100;
+    const PORCENTAJE_DESCUENTO = 0.10;
+
+    let totalFinal = totalCompra;
+
+    if (totalCompra >= MINIMO_DESCUENTO) {
+    const descuento = totalCompra * PORCENTAJE_DESCUENTO;
+    totalFinal = totalCompra - descuento;
+    console.log(`Descuento aplicado: $${descuento.toFixed(2)}`);
+    }
+
+    console.log(`Total a pagar: $${totalFinal.toFixed(2)}`);
+    // Descuento aplicado: $15.00
+    // Total a pagar: $135.00
+
+
+
+
+        const stockDisponible = 3;
+    const UMBRAL_STOCK_BAJO = 5;
+
+    if (stockDisponible <= UMBRAL_STOCK_BAJO) {
+    console.log(`⚠️ Stock bajo: quedan ${stockDisponible} unidades. Reabastecer pronto.`);
+    }
+
+
+
+
+
+
