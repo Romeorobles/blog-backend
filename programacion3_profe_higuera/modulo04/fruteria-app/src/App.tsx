@@ -1,21 +1,21 @@
-import WelcomeBanner        from './components/WelcomeBanner'
-import UserGreeting         from './components/UserGreeting'
-import CurrentDateDisplay   from './components/CurrentDateDisplay'
-import ColoredBox           from './components/ColoredBox'
-import ConditionalGreeting  from './components/ConditionalGreeting'
-import FruitList            from './components/FruitList'
-import PriceTag             from './components/PriceTag'
-import StatusBadge          from './components/StatusBadge'
-import MiniProfileCard      from './components/MiniProfileCard'
-import SimpleInfoTable      from './components/SimpleInfoTable'
-import ProductCard          from './components/ProductCard'
-import ProductCatalogList   from './components/ProductCatalogList'
-import UserProfileCard      from './components/UserProfileCard'
-import TemperatureDisplay   from './components/TemperatureDisplay'
-import ProgressBar          from './components/ProgressBar'
-import BusinessCard         from './components/BusinessCard'
-import RatingStars          from './components/RatingStars'
-import TagList              from './components/TagList'
+import WelcomeBanner        from './assets/components/WelcomeBanner'
+import UserGreeting         from './assets/components/UserGreeting'
+import CurrentDateDisplay   from './assets/components/CurrentDateDisplay'
+import ColoredBox           from './assets/components/ColoredBox'
+import ConditionalGreeting  from './assets/components/ConditionalGreeting'
+import FruitList            from './assets/components/FruitList'
+import PriceTag             from './assets/components/PriceTag'
+import StatusBadge          from './assets/components/StatusBadge'
+import MiniProfileCard      from './assets/components/MiniProfileCard'
+import SimpleInfoTable      from './assets/components/SimpleInfoTable'
+import ProductCard          from './assets/components/ProductCard'
+import ProductCatalogList   from './assets/components/ProductCatalogList'
+import UserProfileCard      from './assets/components/UserProfileCard'
+import TemperatureDisplay   from './assets/components/TemperatureDisplay'
+import ProgressBar          from './assets/components/ProgressBar'
+import BusinessCard         from './assets/components/BusinessCard'
+import RatingStars          from './assets/components/RatingStars'
+import TagList              from './assets/components/TagList'
 
 // ┌──────────────────────────────────────────────────────────────────────────┐
 // │  Cambia PASO y guarda (Ctrl+S) para navegar entre componentes.          │
@@ -135,6 +135,9 @@ export default function App() {
         <RatingStars rating={1} maxStars={10} />
       </div>
     ) :
+
+
+    
     PASO === 18 ? (
       <TagList
         tags={['TypeScript', 'React', 'NestJS', 'PostgreSQL', 'MongoDB', 'Odoo']}

@@ -13,8 +13,12 @@ interface SimpleInfoTableProps {
 
 export default function SimpleInfoTable({ title, rows }: SimpleInfoTableProps) {
   return (
-    <div style={{ maxWidth: 360 }}>
-      {title && <h3 style={{ marginBottom: 8, fontSize: 15 }}>{title}</h3>}
+    <div style={{ maxWidth: 360, backgroundColor: '#fafafa', borderRadius: 8, padding: 16 }}>
+      {title && (
+        <h3 style={{ marginBottom: 8, fontSize: 15, fontWeight: 700, textAlign: 'center' }}>
+          {title}
+        </h3>
+      )}
       <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14 }}>
         <tbody>
           {rows.map((row) => (
@@ -38,6 +42,7 @@ export default function SimpleInfoTable({ title, rows }: SimpleInfoTableProps) {
                 style={{
                   padding: '8px 12px',
                   borderBottom: '1px solid #e5e7eb',
+                  color: row.highlight ? '#1f2937' : '#6b7280',
                   fontWeight: row.highlight ? 600 : 400,
                 }}
               >
